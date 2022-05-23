@@ -15,7 +15,8 @@ However, every time you flip over a mis-matched pair, your cell phone will go of
 
 # Wireframes
 
-![alt text](https://imgur.com/50zFS9R)
+![alt text](https://i.imgur.com/50zFS9R.png)
+
 Layout of game page.
 
 # Future ideas:
