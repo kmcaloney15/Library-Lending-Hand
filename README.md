@@ -10,7 +10,9 @@ However, every time you flip over a mis-matched pair, your cell phone will go of
 
 # Technologies Used
 • HTML5
+
 • CSS
+
 • JavaScript
 
 # Wireframes
