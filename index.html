@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,28 +9,61 @@
     <script async defer src="main.js"></script>
     <title>Library Memory Game</title>
 </head>
+
 <body>
     <h1>Welcome to the Library</h1>
 
+    <div class="stats">
+        <div class="lives"></div>
+    </div>
+
+
     <div class="gameboard">
-        <div class="book">0</div>
-        <div class="book">1</div>
-        <div class="book">2</div>
-        <div class="book">3</div>
-        <div class="book">4</div>
-        <div class="book">5</div>
-        <div class="book">6</div>
-        <div class="book">7</div>
-        <div class="book">8</div>
-        <div class="book">9</div>
-        <div class="book">10</div>
-        <div class="book">11</div>
-        <div class="book">12</div>
-        <div class="book">13</div>
-        <div class="book">14</div>
-        <div class="book">15</div>
+        <!-- <code>backface-visibility: visible;</code>
+        <code>backface-visibility: hidden;</code> -->
+        <!-- make two div for each book - front face and  back face.-->
+        <div class="flip-book">
+
+            <div class="showFrontFace">
+
+                <div class="book front-face" id="0">0
+                    <!-- closed book image goes here -->
+                    <img src="closed book.png" alt="closed book">
+                </div>
+                <div class="book front-face" id="1">1
+                    <!-- closed book image goes here -->
+                    <img src="closed book.png" alt="closed book">
+                </div>
+                <!-- <div class="book front-face" id="1">1</div>
+                <div class="book front-face" id="2">2</div>
+                <div class="book front-face" id="3">3</div>
+                <div class="book front-face" id="4">4</div>
+                <div class="book front-face" id="5">5</div>
+                <div class="book front-face" id="6">6</div>
+                <div class="book front-face" id="7">7</div>
+                <div class="book front-face" id="8">8</div>
+                <div class="book front-face" id="9">9</div>
+                <div class="book front-face" id="10">10</div>
+                <div class="book front-face" id="11">11</div>
+                <div class="book front-face" id="12">12</div>
+                <div class="book front-face" id="13">13</div>
+                <div class="book front-face" id="14">14</div>
+                <div class="book front-face" id="15">15</div> -->
+                </div>
+
+            <div class="showBackFace">
+                <div class="book back-face" id="0">0
+                    <!-- image or text goes here for square 1 -->
+                    <p>3. Aragon</p>
+                    <p>by Christopher Paolini</p>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
 
 </body>
+
 </html>

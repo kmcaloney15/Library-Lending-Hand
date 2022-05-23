@@ -1,5 +1,5 @@
 body{
-    justify-content: center;
+    text-align: center;
 }
 
 .gameboard {
@@ -8,8 +8,58 @@ body{
     grid-template-rows: repeat(4, 1fr);
     justify-content: center;
     align-content: center;
-    height: 200px;
-    width: 200px;
-    margin: 60px auto;
-    background-color: darkcyan;
+    height: 50vh;
+    width: 50vw;
+    margin: 60px;
+    border-color: black;
+    perspective: 1000px;
+    /* background-color: lightcyan; */
 }
+
+.book {
+    border: 2px solid black;
+    margin: 5px;
+    cursor: pointer;
+    }
+
+
+/* transforming / flipping the books */
+.flip-book {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .gameboard:hover .flip-book {
+    transform: rotateY(180deg);
+  }
+
+.front-face, .back-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.front-book {
+    background-color: #bbb;
+    color: black;
+  }
+
+.back-face {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+
+
+/* need styling for front of the book */
+/* use this for the flipping of the book transition: https://easings.net/#easeInOutCubic */
+
+
+/* need styling for back of book / after it's flipped 
+Use backface-visibility to hide book image for more info: https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility */
