@@ -23,7 +23,7 @@ body{
     }
 
 
-/* transforming / flipping the books */
+/* styling all the books */
 .flip-book {
     position: relative;
     width: 100%;
@@ -33,26 +33,39 @@ body{
     transform-style: preserve-3d;
   }
 
-  .gameboard:hover .flip-book {
+  .flipBookAction {
     transform: rotateY(180deg);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
   }
 
 .front-face, .back-face {
     position: relative;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
+    color: black;
+    /* backface-visibility: hidden; */
 }
 
-.front-book {
-    background-color: #bbb;
-    color: black;
+/* p {
+    visibility: hidden;
+} */
+
+.front-face {
+    /* background-color: #bbb; */
+    /* color: black; */
+    visibility: visible;
   }
 
 .back-face {
-    background-color: dodgerblue;
-    color: white;
     transform: rotateY(180deg);
+    visibility: hidden;
+    
+
 }
 
 
