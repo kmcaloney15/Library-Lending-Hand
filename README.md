@@ -17,11 +17,12 @@ However, every time you flip over a mis-matched pair, your cell phone will go of
 
 # Wireframes
 
-![Matching game wireframe](https://github.com/kmcaloney15/library-memory-game/img/matching-game-wireframe.png)
+[Matching game wireframe](kmcaloney15/library-memory-game/img/matching-game-wireframe.png)
 
 Layout of game page.
 
 # Future ideas:
 • create a welcome page that introduces the library, and they have to click start or play game to enter. 
+
 • in the future I'd like to adapt this for mobile phones and make an app for it
 
