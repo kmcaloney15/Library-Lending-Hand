@@ -3,8 +3,8 @@
 const books = document.querySelectorAll(".book");
 
 let hasFlippedBook = false;
-let closedBook;
-let bookTitle;
+let firstFlip;
+let secondFlip;
 
 //---------------------- FUNCTIONS ------------------------------------/
 
@@ -15,13 +15,32 @@ function flipBook() {
   if (hasFlippedBook === false) {
     //first click
     hasFlippedBook = true;
-    closedBook = this;
-    console.log({hasFlippedBook, closedBook})
+    firstFlip = this;
+    // console.log({hasFlippedBook, firstFlip})
   } else {
       //
       hasFlippedBook = false;
-      bookTitle = this;
+      secondFlip = this;
+  
+
+// look for matching books
+console.log(firstFlip.classList[1]);
+//if match  
+if (firstFlip.classList[1] === secondFlip.classList[1]){
+    firstFlip.removeEventListener('click', flipBook);
+    secondFlip.removeEventListener('click', flipBook);
+    console.log('function ran')
+  } else {
+      //not a match
+      setTimeout(function(){
+          firstFlip.classList.remove('flip');
+          secondFlip.classList.remove('flip');
+    }, 1500)
+      
   }
+
+  }
+
 }
 
 //  -------------------------- Event Listeners -------------------------/
