@@ -24,12 +24,12 @@ function flipBook() {
   
 
 // look for matching books
-console.log(firstFlip.classList[1]);
+// console.log(firstFlip.classList[1]);
 //if match  
 if (firstFlip.classList[1] === secondFlip.classList[1]){
     firstFlip.removeEventListener('click', flipBook);
     secondFlip.removeEventListener('click', flipBook);
-    console.log('function ran')
+    console.log('matched pair')
   } else {
       //not a match
       setTimeout(function(){
