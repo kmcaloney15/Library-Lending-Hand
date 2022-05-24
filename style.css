@@ -16,6 +16,10 @@ body{
     /* background-color: lightcyan; */
 }
 
+img {
+   size-adjust: 20px; 
+}
+
 .book {
     border: 2px solid black;
     margin: 5px;
@@ -43,7 +47,7 @@ body{
     transform-style: preserve-3d;
   }
 
-.front-face, .back-face {
+.front, .title {
     position: relative;
     width: 100%;
     height: 100%;
@@ -55,13 +59,13 @@ body{
     visibility: hidden;
 } */
 
-.front-face {
+.front {
     /* background-color: #bbb; */
     /* color: black; */
     visibility: visible;
   }
 
-.back-face {
+.title {
     transform: rotateY(180deg);
     visibility: hidden;
     
