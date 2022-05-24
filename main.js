@@ -1,46 +1,63 @@
-// Global Variables --------------------------------------------------------------------------
+// Global Variables --------------------------------------------------------------------------/
+
 //declair books and boxes
 books = document.querySelectorAll(".book");
 gameBoard = document.querySelector(".gameboard");
 let frontImage = document.querySelector(".front");
-let title = "";
+let title;
 // let backFaceImage = document.querySelector('.back-face');
-console.log(books);
+// console.log(books);
+let bookParent;
 // console.log(backFaceImage)
+//  -------------------------- Event Listeners -------------------------------------------/
 
-// Click addEventListener - for flipping the books -----------------------------------------------------------------------------
-//add all below to a function
+
 for (const book of books) {
-  book.addEventListener("click", function () {
-    book.classList.add("flipBookAction");
-    console.log(book);
+    book.addEventListener("click", playerClick);
+    console.log(bookParent)
+}
 
+
+
+//once they click - event listener - set timeout where if the win is false toggle the action that flipped the card in the first place - flipBookAction
+
+
+//-----------------FUNCTIONS------------------------------------/
+
+function playerClick() {
+    book.classList.add("flipBookAction");
+    // console.log(book);
+    
+    //value always has to be a string
     title = document.querySelector(".back :nth-child(1)");
     bookParent = book.children[1];
-    console.log(bookParent.children[0].innerHTML);
+    // console.log(bookParent.children[0].innerHTML);
     let bookName = title.innerText;
     // console.log(title);
-    console.log(bookParent.classList);
-    //value always has to be a string
+    // console.log(bookParent.classList);
     
-    //add class or proberties to make front face image hidden, and then show the backface text
+
     setTimeout(timedFlip, 550);
-    
-    // backFaceText.style.backfaceVisibility = 'visibile';
+
     // console.log('this is working');
-});
 }
-//need text to keep displaying
+
 
 function timedFlip() {
   frontImage.style.visibility = "hidden";
   title.style.visibility = "visible";
 }
-//want to use classes to distinguise which pair matches with witch. for and if loops?
+
 
 //want to try to randomize which books get places where so each game is different. Possibly make them into an array and use math.floor(math.random);
 
-// Win & Loose Conditionals -----------------------------------------------------------------------------
+// Win & Loose function
+
+
+//pop last number from id and then say if id = id - then win
+
+
+
 
 // When two books are matched, have them dissapear - use classes and .remove
 
@@ -53,4 +70,3 @@ function timedFlip() {
 
 //-----------------------------------------------------------------------------
 
-// make the book titles a child of the book images and make it relative
