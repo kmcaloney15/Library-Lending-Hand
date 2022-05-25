@@ -90,23 +90,26 @@ books.forEach((book) => {
 
 //array of array - inside book title and how many times //loop through //have it write in the class to randomize
 
+let doubleBooks = [];
 
-//
+//testing the random books / push to write them on the cards
 function printBooks(booksArray){
-    let doubleBooks = [];
-     for (let myBook of booksArray){
-         doubleBooks.push(myBook);
-         doubleBooks.push(myBook);
-         console.log(myBook.title, myBook.class)
-         console.log('this is the', doubleBooks);
-     }
+     for (let i = 0; i < booksArray.length; i++){
+        console.log(booksArray[i]);
+        // console.log(typeof booksArray[i]);
+        doubleBooks.push(booksArray[i]);
+         doubleBooks.push(booksArray[i]);
+        //  console.log(myBook.title, myBook.class)
+    }
+    console.log('this is the', doubleBooks);
     // console.log(doubleBooks);
-    while (doubleBooks.length > 0){
+
+    for (let i = 0; i < doubleBooks.length; i++){
         let randBook = Math.floor(Math.random()*doubleBooks.length);
         let currentBook = doubleBooks.splice(randBook, 1);
         console.log('Current book is',  currentBook.title);
-        console.log(randBook);
-        console.log(currentBook[randBook]);
+        // console.log(currentBook[randBook]);
+        // console.log(randBook);
     }
 }
 
@@ -117,8 +120,16 @@ booksArray.push({
     class: 'sidewalk',
 });
 booksArray.push({
-    title:'Aragon by Christopher Paolini',
-    class: 'aragon',
+    title:'Eragon by Christopher Paolini',
+    class: 'eragon',
+});
+booksArray.push({
+    title:'Virgin River by Robyn Carr',
+    class: 'virgin',
+});
+booksArray.push({
+    title:'Rules of Redemption by T.A. White',
+    class: 'rules',
 });
 printBooks(booksArray);
 
