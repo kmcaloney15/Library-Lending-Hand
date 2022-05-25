@@ -1,6 +1,5 @@
 // ------------ Global Variables ---------------------------------------/
 const gameboard = document.querySelector(".gameboard");
-const books = document.querySelectorAll(".book");
 const playerLivesCount = document.querySelector("span");
 //how many lives they start with
 const playerLives = 6;
@@ -9,6 +8,51 @@ let hasFlippedBook = false;
 let firstFlip;
 let secondFlip;
 let clickLimit = false;
+
+
+let booksArray = [];
+booksArray.push({
+    imgSrc:
+    "img/sidewalk.jpeg",
+    class: "sidewalk",
+});
+booksArray.push({
+    imgSrc:
+    "img/eragon.jpeg",
+    class: "eragon",
+});
+booksArray.push({
+    imgSrc:
+    "img/sidewalk.jpeg",
+    class: "virgin",
+});
+booksArray.push({
+    imgSrc: "img/rules-of-redemption.jpg",
+    class: "rules",
+});
+booksArray.push({
+    imgSrc: "img/lotr.jpeg",
+    class: "lotr",
+});
+booksArray.push({
+    imgSrc: "img/harry-potter.jpg",
+    class: "hp",
+});
+booksArray.push({
+    imgSrc: "img/bookshop-on-the-corner.jpeg",
+    class: "bookshop",
+});
+booksArray.push({
+    imgSrc: "img/pride-and-prejudice.jpeg",
+    class: "pride",
+});
+
+let doubleBooks = [];
+createsDoubleBooksArray(booksArray);
+shuffleArray(doubleBooks);
+printBooks();
+
+const books = document.querySelectorAll(".book");
 
 playerLivesCount.textContent = playerLives;
 
@@ -67,7 +111,7 @@ function disableFlip() {
 function unflipBooks() {
   //clickLimit = true here so that they can only click on the books after they have been flipped
   clickLimit = true;
-  console.log(clickLimit);
+  //   console.log(clickLimit);
   //not a match
   setTimeout(function () {
     firstFlip.classList.remove("flip");
@@ -83,7 +127,7 @@ function restartGame() {
 
 //array of array - inside book title and how many times //loop through //have it write in the class to randomize
 
-let doubleBooks = [];
+
 
 //creates duplicate books to be randomized
 function createsDoubleBooksArray(array) {
@@ -101,7 +145,7 @@ function shuffleArray(array) {
   }
   // console.log(array);
 }
-//TODO recreate the book divs here in js
+//recreate the book divs here in js and print them in html
 function printBooks() {
   //loop through to create the div
   let bookElement = "";
@@ -109,62 +153,37 @@ function printBooks() {
     bookElement = document.createElement("div");
     bookElement.classList.add("book");
     bookElement.classList.add(book.class);
-    console.log(bookElement.classList);
-    //add in other divs with append and appendChild
+    // console.log(bookElement.classList);
+    //add the divs that surround the front and back images
+    divFront = document.createElement("div");
+    divBack = document.createElement("div");
+    divFront.classList = "front";
+    divBack.classList = "back";
 
     //creating the front and back of the books with the images
     const newBookFront = document.createElement("img");
+    newBookFront.src = "img/closed-book-green.png"
+    newBookFront.classList = 'frontImg'
     const newBookBack = document.createElement("img");
-    newBookFront.classList = "front";
-    newBookBack.classList = "back";
+    newBookBack.classList = "testing"
 
-    //attach the image files to the front and back
-
+       //FIXME attach the image files to the front and back
+    newBookBack.src = book.imgSrc;
+    console.log(book.imgSrc)
 
     //need to append newly created books to gameboard section
     gameboard.appendChild(bookElement);
-    bookElement.appendChild(newBookFront);
-    bookElement.appendChild(newBookBack);
+    bookElement.appendChild(divFront);
+    bookElement.appendChild(divBack);
+    divFront.appendChild(newBookFront);
+    divBack.appendChild(newBookBack);
   });
 }
 
-//creating the objects of each book to push into the array
-let booksArray = [];
-booksArray.push({
-  imgSrc: "img/sidewalk.jpeg",
-  class: "sidewalk",
-});
-booksArray.push({
-  imgSrc: "img/eragon.jpeg",
-  class: "eragon",
-});
-booksArray.push({
-    imgSrc: "img/virgin-river.jpg",
-  class: "virgin",
-});
-booksArray.push({
-    imgSrc: "img/rules-of-redemption",
-  class: "rules",
-});
-booksArray.push({
-    imgSrc: "img/lotr.jpeg",
-  class: "lotr",
-});
-booksArray.push({
-    imgSrc: "img/harry-potter.jpg",
-  class: "hp",
-});
-booksArray.push({
-    imgSrc: "img/bookshop-on-the-corner.jpeg",
-  class: "bookshop",
-});
-booksArray.push({
-    imgSrc: "img/pride-and-prejudice.jpeg",
-  class: "pride",
-});
-createsDoubleBooksArray(booksArray);
-shuffleArray(doubleBooks);
-printBooks();
 
-console.log(booksArray)
-//if random book picked then add class of book title to match
+//creating the objects of each book to push into the array
+
+//------------- Calling Functions -----------------------------------/
+
+// console.log(booksArray);
+
