@@ -11,11 +11,11 @@ let clickLimit = false;
 
 
 let booksArray = [];
-booksArray.push({
-    imgSrc:
-    "img/sidewalk.jpeg",
-    class: "sidewalk",
-});
+// booksArray.push({
+//     imgSrc:
+//     "img/virgin-river.jpg",
+//     class: "virgin",
+// });
 booksArray.push({
     imgSrc:
     "img/eragon.jpeg",
@@ -24,7 +24,7 @@ booksArray.push({
 booksArray.push({
     imgSrc:
     "img/sidewalk.jpeg",
-    class: "virgin",
+    class: "sidewalk",
 });
 booksArray.push({
     imgSrc: "img/rules-of-redemption.jpg",
@@ -46,6 +46,11 @@ booksArray.push({
     imgSrc: "img/pride-and-prejudice.jpeg",
     class: "pride",
 });
+booksArray.push({
+    imgSrc: "img/clean-sweep.jpeg",
+    class: "sweep",
+});
+
 
 let doubleBooks = [];
 createsDoubleBooksArray(booksArray);
@@ -99,6 +104,9 @@ function checkMatch() {
     disableFlip();
   } else {
     unflipBooks();
+    //take away a life
+    // playerLives = playerLives - 1;
+    //play ring sound
   }
 }
 
