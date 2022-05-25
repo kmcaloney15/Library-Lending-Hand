@@ -17,7 +17,7 @@ However, every time you flip over a mis-matched pair, your cell phone will go of
 
 # Wireframes
 
-<img src="kmcaloney15.github.io/library-memory-game/img/matching-game-wireframe.png">
+![Library Memory Matching Wireframe](/Users/Katherine/Desktop/SEI/unit1/project/library-memory-game/img/matching-game-wireframe.png)
 
 Layout of game page.
 

@@ -1,5 +1,5 @@
 // ------------ Global Variables ---------------------------------------/
-
+const gameboard = document.querySelector(".gameboard");
 const books = document.querySelectorAll(".book");
 const playerLivesCount = document.querySelector("span");
 //how many lives they start with
@@ -30,19 +30,16 @@ function flipBook() {
   if (this === firstFlip) {
     return;
   }
-  console.log(clickLimit);
+  //   console.log(clickLimit);
 
   this.classList.add("flip");
-  // console.log('this was clicked')
   // hasFlippedBook = true;
   //if hasFlippedBook is false - then it's the first time a player has clicked the book
   if (hasFlippedBook === false) {
     //first click
     hasFlippedBook = true;
     firstFlip = this;
-    // console.log({hasFlippedBook, firstFlip})
   } else {
-    //
     hasFlippedBook = false;
     secondFlip = this;
 
@@ -54,42 +51,35 @@ function flipBook() {
 
 //put each function seperate, then call function in main one
 function checkMatch() {
-  //FIXME //when same book clicked twice, it say's its a match
-  //make condition super strict
   if (firstFlip.classList[1] === secondFlip.classList[1]) {
     disableFlip();
   } else {
-      unflipBooks();
-}
+    unflipBooks();
+  }
 }
 
 function disableFlip() {
-    firstFlip.removeEventListener("click", flipBook);
-    secondFlip.removeEventListener("click", flipBook);
-    console.log("matched pair");
+  firstFlip.removeEventListener("click", flipBook);
+  secondFlip.removeEventListener("click", flipBook);
+  console.log("matched pair");
 }
 
-function unflipBooks(){
-    //clickLimit = true here so that they can only click on the books after they have been flipped
-    clickLimit = true;
-    console.log(clickLimit);
-    //not a match
-    setTimeout(function () {
-      firstFlip.classList.remove("flip");
-      secondFlip.classList.remove("flip");
-    
-      clickLimit = false;
-    }, 1500);
+function unflipBooks() {
+  //clickLimit = true here so that they can only click on the books after they have been flipped
+  clickLimit = true;
+  console.log(clickLimit);
+  //not a match
+  setTimeout(function () {
+    firstFlip.classList.remove("flip");
+    secondFlip.classList.remove("flip");
 
+    clickLimit = false;
+  }, 1500);
 }
 
 function restartGame() {
   hasFlippedBook = false;
 }
-
-//need to randomize books - use math.floor(math.ranom()*16)
-
-//use datasets to organize and pull the books or make everything like a node and then just check the value / or just check the inner div
 
 //array of array - inside book title and how many times //loop through //have it write in the class to randomize
 
@@ -98,14 +88,9 @@ let doubleBooks = [];
 //creates duplicate books to be randomized
 function createsDoubleBooksArray(array) {
   for (let i = 0; i < array.length; i++) {
-    // console.log(booksArray[i]);
-    // console.log(typeof booksArray[i]);
     doubleBooks.push(array[i]);
     doubleBooks.push(array[i]);
-    //  console.log(myBook.title, myBook.class)
   }
-  // console.log('this is the', doubleBooks);
-  // console.log(doubleBooks);
 }
 
 //shuffles the books in the array
@@ -116,19 +101,27 @@ function shuffleArray(array) {
   }
   // console.log(array);
 }
-
+//TODO recreate the book divs here in js
 function printBooks() {
-  //   console.log(doubleBooks);
   //loop through to create the div
   let bookElement = "";
   doubleBooks.forEach((book) => {
     bookElement = document.createElement("div");
     bookElement.classList.add("book");
     bookElement.classList.add(book.class);
-    console.log(bookElement);
+    console.log(bookElement.classList);
     //add in other divs with append and appendChild
 
-    //create div underneath
+    //creating the front and back of the books with the images
+    const newBookFront = document.createElement("img");
+    const newBookBack = document.createElement("img");
+    newBookFront.classList = "front";
+    newBookBack.classList = "back";
+
+    //need to append newly created books to gameboard section
+    gameboard.appendChild(bookElement);
+    bookElement.appendChild(newBookFront);
+    bookElement.appendChild(newBookBack);
   });
 }
 
