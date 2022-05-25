@@ -103,16 +103,7 @@ function createsDoubleBooksArray(array){
     }
     // console.log('this is the', doubleBooks);
     // console.log(doubleBooks);
-
-    //might not need this below
-//     for (let i = 0; i < doubleBooks.length; i++){
-//         let randBook = Math.floor(Math.random()*doubleBooks.length);
-//         let currentBook = doubleBooks.splice(randBook, 1);
-//         console.log('Current book is',  currentBook.title);
-//         // console.log(currentBook[randBook]);
-//         console.log(randBook);
-//     }   
-}
+  }
 
 //shuffles the books in the array
 function shuffleArray(array) {
@@ -120,9 +111,22 @@ function shuffleArray(array) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
-    console.log(array);
+    // console.log(array);
 };
 
+function printBooks() {
+//   console.log(doubleBooks);
+  //loop through to create the div
+  let bookElement = '';
+  doubleBooks.forEach(book => {
+      bookElement = document.createElement("div");
+      bookElement.classList.add("book");
+      bookElement.classList.add(book.class);
+      console.log(bookElement);
+      //add in other divs with append and appendChild
+      //create div underneath 
+  })
+}
 
 //creating the objects of each book to push into the array
 let booksArray = [];
@@ -142,8 +146,17 @@ booksArray.push({
     title:'Rules of Redemption by T.A. White',
     class: 'rules',
 });
+booksArray.push({
+    title:'Lord of the Rings by J.R.R. Tolkein',
+    class: 'lotr',
+});
+booksArray.push({
+    title:'Harry Potter and the Socerers Stone by J.K. Rowling',
+    class: 'hp',
+});
 createsDoubleBooksArray(booksArray);
 shuffleArray(doubleBooks);
+printBooks();
 
 
 
