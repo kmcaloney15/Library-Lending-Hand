@@ -1,11 +1,17 @@
 // ------------ Global Variables ---------------------------------------/
 
 const books = document.querySelectorAll(".book");
+const playerLivesCount = document.querySelector('span');
+//how many lives they start with
+const playerLives = 6;
 
 let hasFlippedBook = false;
 let firstFlip;
 let secondFlip;
 let clickLimit = false;
+
+playerLivesCount.textContent = playerLives;
+
 
 //---------------------- FUNCTIONS ------------------------------------/
 
@@ -64,6 +70,14 @@ function checkMatch() {
   }
 }
 
+function restartGame(){
+    hasFlippedBook = false;
+
+}
+
+//need to randomize books - use math.floor(math.ranom()*16)
+
+
 //  -------------------------- Event Listeners -------------------------/
 
 books.forEach((book) => {
@@ -72,3 +86,42 @@ books.forEach((book) => {
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
 //use datasets to organize and pull the books or make everything like a node and then just check the value / or just check the inner div
+
+
+//array of array - inside book title and how many times //loop through //have it write in the class to randomize
+
+
+//
+function printBooks(booksArray){
+    let doubleBooks = [];
+     for (let myBook of booksArray){
+         doubleBooks.push(myBook);
+         doubleBooks.push(myBook);
+         console.log(myBook.title, myBook.class)
+         console.log('this is the', doubleBooks);
+     }
+    // console.log(doubleBooks);
+    while (doubleBooks.length > 0){
+        let randBook = Math.floor(Math.random()*doubleBooks.length);
+        let currentBook = doubleBooks.splice(randBook, 1);
+        console.log('Current book is',  currentBook.title);
+        console.log(randBook);
+        console.log(currentBook[randBook]);
+    }
+}
+
+//creating the objects of each book to push into the array
+let booksArray = [];
+booksArray.push({
+    title:'Where the Sidewalk Ends by Shel Silverstein',
+    class: 'sidewalk',
+});
+booksArray.push({
+    title:'Aragon by Christopher Paolini',
+    class: 'aragon',
+});
+printBooks(booksArray);
+
+
+
+

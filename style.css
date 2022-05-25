@@ -1,68 +1,79 @@
-body{
+body {
     text-align: center;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     height: 100vh;
-    box-sizing: inherit;
-    }
+    background-color: lightblue;
+    /* box-sizing: inherit; */
+    /* background-image: url("img/pexels-ivo-rainha-1290141.jpg");
+    background-repeat: no-repeat;
+    background-position: 20px 30px;
+    background-size: 100%; */
+}
 
+h1 {
+    /* align-items: center; */
+    justify-content: center;
+    align-content: center;
+}
 
 .gameboard {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    border: 2px solid limegreen;
+    /* border: 2px solid limegreen; */
     perspective: 1000px;
     margin: auto;
-  }
+}
 
-
-  .book {
-    border: 2px solid purple;
+.book {
+    /* border: 2px solid purple; */
+    background-color: white;
     margin: 5px;
     cursor: pointer;
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.8s;
-    }
+}
+
 .book.flip {
     transform: rotateY(180deg);
 }
+
 /* don't think I need this any more */
-    /* .flipBookAction {
+/* .flipBookAction {
         transform: rotateY(180deg);
         position: relative;
         width: 100%;
         height: 100%;
         text-align: center;
       } */
-    
-    .front, .back {
-        position: absolute;
-        align-items: center;
-        /* width: 100%;
+
+.front,
+.back {
+    position: absolute;
+    align-items: center;
+    /* width: 100%;
         height: 100%; */
-        border: 2px solid deeppink;
-        backface-visibility: hidden;
-    }
-    
-    .front {
-        background-color: yellow;
-      }
-    
-    .back {
-        transform: rotateY(180deg);
-        background-color: dodgerblue;
-    }
-    
-    /* need styling for front of the book */
-    /* use this for the flipping of the book transition: https://easings.net/#easeInOutCubic */
-    
-    
-    /* need styling for back of book / after it's flipped 
+    /* border: 2px solid deeppink; */
+    backface-visibility: hidden;
+}
+
+.front {
+    background-color: white;
+}
+
+.back {
+    transform: rotateY(180deg);
+    background-color: white;
+}
+
+/* need styling for front of the book */
+/* use this for the flipping of the book transition: https://easings.net/#easeInOutCubic */
+
+
+/* need styling for back of book / after it's flipped 
     Use backface-visibility to hide book image for more info: https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility */
-    
-    
