@@ -92,26 +92,37 @@ books.forEach((book) => {
 
 let doubleBooks = [];
 
-//testing the random books / push to write them on the cards
-function printBooks(booksArray){
-     for (let i = 0; i < booksArray.length; i++){
-        console.log(booksArray[i]);
+//creates duplicate books to be randomized
+function createsDoubleBooksArray(array){
+     for (let i = 0; i < array.length; i++){
+        // console.log(booksArray[i]);
         // console.log(typeof booksArray[i]);
-        doubleBooks.push(booksArray[i]);
-         doubleBooks.push(booksArray[i]);
+        doubleBooks.push(array[i]);
+         doubleBooks.push(array[i]);
         //  console.log(myBook.title, myBook.class)
     }
-    console.log('this is the', doubleBooks);
+    // console.log('this is the', doubleBooks);
     // console.log(doubleBooks);
 
-    for (let i = 0; i < doubleBooks.length; i++){
-        let randBook = Math.floor(Math.random()*doubleBooks.length);
-        let currentBook = doubleBooks.splice(randBook, 1);
-        console.log('Current book is',  currentBook.title);
-        // console.log(currentBook[randBook]);
-        // console.log(randBook);
-    }
+    //might not need this below
+//     for (let i = 0; i < doubleBooks.length; i++){
+//         let randBook = Math.floor(Math.random()*doubleBooks.length);
+//         let currentBook = doubleBooks.splice(randBook, 1);
+//         console.log('Current book is',  currentBook.title);
+//         // console.log(currentBook[randBook]);
+//         console.log(randBook);
+//     }   
 }
+
+//shuffles the books in the array
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    console.log(array);
+};
+
 
 //creating the objects of each book to push into the array
 let booksArray = [];
@@ -131,8 +142,10 @@ booksArray.push({
     title:'Rules of Redemption by T.A. White',
     class: 'rules',
 });
-printBooks(booksArray);
+createsDoubleBooksArray(booksArray);
+shuffleArray(doubleBooks);
 
 
 
 
+//if random book picked then add class of book title to match
