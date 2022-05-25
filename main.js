@@ -2,14 +2,12 @@
 const gameboard = document.querySelector(".gameboard");
 const playerLivesCount = document.querySelector("span");
 //how many lives they start with
-const playerLives = 6;
-
+let playerLives = 3;
 let hasFlippedBook = false;
 let firstFlip;
 let secondFlip;
 let clickLimit = false;
-
-
+playerLivesCount.textContent = playerLives;
 let booksArray = [];
 // booksArray.push({
 //     imgSrc:
@@ -59,8 +57,6 @@ printBooks();
 
 const books = document.querySelectorAll(".book");
 
-playerLivesCount.textContent = playerLives;
-
 //  -------------------------- Event Listeners -------------------------/
 
 books.forEach((book) => {
@@ -105,7 +101,10 @@ function checkMatch() {
   } else {
     unflipBooks();
     //take away a life
-    // playerLives = playerLives - 1;
+    playerLives--;
+    playerLivesCount.textContent = playerLives;
+    setTimeout(endGame, 1500);
+    // console.log(playerLives)
     //play ring sound
   }
 }
@@ -187,6 +186,13 @@ function printBooks() {
     divBack.appendChild(newBookBack);
   });
 }
+
+function endGame(){
+    if (playerLives === 0){
+        alert("Game over")
+    }
+}
+
 
 
 //creating the objects of each book to push into the array
