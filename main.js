@@ -2,7 +2,8 @@
 const gameboard = document.querySelector(".gameboard");
 const playerLivesCount = document.querySelector("span");
 //how many lives they start with
-let playerLives = 3;
+let playerLives = 100;
+let matchedBookCount = 0;
 let hasFlippedBook = false;
 let firstFlip;
 let secondFlip;
@@ -62,7 +63,6 @@ const books = document.querySelectorAll(".book");
 books.forEach((book) => {
   book.addEventListener("click", flipBook);
 });
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
 //---------------------- FUNCTIONS ------------------------------------/
 
@@ -98,12 +98,15 @@ function flipBook() {
 function checkMatch() {
   if (firstFlip.classList[1] === secondFlip.classList[1]) {
     disableFlip();
+    matchedBookCount++;
+    console.log(matchedBookCount);
+   setTimeout(checkWin, 1500);
   } else {
     unflipBooks();
     //take away a life
     playerLives--;
     playerLivesCount.textContent = playerLives;
-    setTimeout(endGame, 1500);
+    setTimeout(endGame, 1000);
     // console.log(playerLives)
     //play ring sound
   }
@@ -131,9 +134,6 @@ function unflipBooks() {
 function restartGame() {
   hasFlippedBook = false;
 }
-
-//array of array - inside book title and how many times //loop through //have it write in the class to randomize
-
 
 
 //creates duplicate books to be randomized
@@ -174,7 +174,7 @@ function printBooks() {
     const newBookBack = document.createElement("img");
     newBookBack.classList = "testing"
 
-       //FIXME attach the image files to the front and back
+       //attach the image files to the front and back
     newBookBack.src = book.imgSrc;
     console.log(book.imgSrc)
 
@@ -187,17 +187,19 @@ function printBooks() {
   });
 }
 
+function checkWin(){
+    if (matchedBookCount === 8){
+        alert("You won!");
+    }
+}
+
 function endGame(){
     if (playerLives === 0){
         alert("Game over")
     }
-}
+};
 
 
 
-//creating the objects of each book to push into the array
 
-//------------- Calling Functions -----------------------------------/
-
-// console.log(booksArray);
 
