@@ -118,6 +118,9 @@ function printBooks() {
     newBookFront.classList = "front";
     newBookBack.classList = "back";
 
+    //attach the image files to the front and back
+
+
     //need to append newly created books to gameboard section
     gameboard.appendChild(bookElement);
     bookElement.appendChild(newBookFront);
@@ -128,39 +131,40 @@ function printBooks() {
 //creating the objects of each book to push into the array
 let booksArray = [];
 booksArray.push({
-  title: "Where the Sidewalk Ends by Shel Silverstein",
+  imgSrc: "img/sidewalk.jpeg",
   class: "sidewalk",
 });
 booksArray.push({
-  title: "Eragon by Christopher Paolini",
+  imgSrc: "img/eragon.jpeg",
   class: "eragon",
 });
 booksArray.push({
-  title: "Virgin River by Robyn Carr",
+    imgSrc: "img/virgin-river.jpg",
   class: "virgin",
 });
 booksArray.push({
-  title: "Rules of Redemption by T.A. White",
+    imgSrc: "img/rules-of-redemption",
   class: "rules",
 });
 booksArray.push({
-  title: "Lord of the Rings by J.R.R. Tolkein",
+    imgSrc: "img/lotr.jpeg",
   class: "lotr",
 });
 booksArray.push({
-  title: "Harry Potter and the Socerers Stone by J.K. Rowling",
+    imgSrc: "img/harry-potter.jpg",
   class: "hp",
 });
 booksArray.push({
-  title: "The Bookshop on the Corner by Jenny Colgan",
+    imgSrc: "img/bookshop-on-the-corner.jpeg",
   class: "bookshop",
 });
 booksArray.push({
-  title: "Pride and Prejudice by Jane Ausin",
+    imgSrc: "img/pride-and-prejudice.jpeg",
   class: "pride",
 });
 createsDoubleBooksArray(booksArray);
 shuffleArray(doubleBooks);
 printBooks();
 
+console.log(booksArray)
 //if random book picked then add class of book title to match
