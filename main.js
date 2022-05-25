@@ -40,18 +40,16 @@ function flipBook() {
     hasFlippedBook = false;
     secondFlip = this;
 
-    // console.log(firstFlip.classList[1]);
-    // console.log(secondFlip.classList[1]);
     // look for matching books
     //if match
-    //make condition super strict
     checkMatch();
-  }
+}
 }
 
 //put each function seperate, then call function in main one
 function checkMatch() {
-  //FIXME //when same book clicked twice, it say's its a match
+    //FIXME //when same book clicked twice, it say's its a match
+    //make condition super strict
   if (firstFlip.classList[1] === secondFlip.classList[1]) {
     firstFlip.removeEventListener("click", flipBook);
     secondFlip.removeEventListener("click", flipBook);
@@ -124,6 +122,7 @@ function printBooks() {
       bookElement.classList.add(book.class);
       console.log(bookElement);
       //add in other divs with append and appendChild
+
       //create div underneath 
   })
 }
@@ -153,6 +152,14 @@ booksArray.push({
 booksArray.push({
     title:'Harry Potter and the Socerers Stone by J.K. Rowling',
     class: 'hp',
+});
+booksArray.push({
+    title:'The Bookshop on the Corner by Jenny Colgan',
+    class: 'bookshop',
+});
+booksArray.push({
+    title:'Pride and Prejudice by Jane Ausin',
+    class: 'pride',
 });
 createsDoubleBooksArray(booksArray);
 shuffleArray(doubleBooks);
