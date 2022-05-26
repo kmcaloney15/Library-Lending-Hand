@@ -2,7 +2,7 @@
 const gameboard = document.querySelector(".gameboard");
 const playerLivesCount = document.querySelector("span");
 //how many lives they start with
-let playerLives = 100;
+let playerLives = 10;
 let matchedBookCount = 0;
 let hasFlippedBook = false;
 let firstFlip;
@@ -100,7 +100,7 @@ function checkMatch() {
     disableFlip();
     matchedBookCount++;
     console.log(matchedBookCount);
-   setTimeout(checkWin, 1500);
+   setTimeout(checkWin, 1000);
   } else {
     unflipBooks();
     //take away a life
