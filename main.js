@@ -1,12 +1,16 @@
+
+
 // ------------ Global Variables ---------------------------------------/
 const gameboard = document.querySelector(".gameboard");
 const playerLivesCount = document.querySelector("span");
 const livesText = document.querySelector("lives");
+const intro = document.querySelector('.intro');
+const gameDiv = document.querySelector('.gameDiv')
 
 //Start game buttons
-startButton = document.getElementById('startButton');
-instructionsButton = document.getElementById('instructions');
-closeButton = document.querySelector('#closeButton');
+const startButton = document.getElementById('startButton');
+const instructionsButton = document.getElementById('instructions');
+const closeButton = document.querySelector('#closeButton');
 
 
 let playerLives = 10;
@@ -63,6 +67,7 @@ booksArray.push({
 
 //---------------- Calling Functions ----------------------------------/
 let doubleBooks = [];
+
 // startGame();
 createsDoubleBooksArray(booksArray);
 shuffleArray(doubleBooks);
@@ -71,19 +76,28 @@ printBooks();
 const books = document.querySelectorAll(".book");
 
 //  -------------------------- Event Listeners -------------------------/
-
+//clicking on the books
 books.forEach((book) => {
     book.addEventListener("click", flipBook);
 });
 
+startButton.addEventListener('click', startGame);
 
+//audio for cell phone ringing
+// myAudioElement.addEventListener('canplay', event => {
+//     myAudioElement.play();
+// });
+// console.log(myAudioElement);
 
 //---------------------- FUNCTIONS ------------------------------------/
 
 //to run the start game page and instructions
-// function startGame(){
-//     document.querySelector('#startGameMessage').style.display = 'none';
-// }
+function startGame() {
+  intro.style.display = "none";
+  gameDiv.style.display = "block";
+}
+
+
 
 function flipBook() {
   //if clickLimit = true then the player won't be able to keep clicking on the board.
