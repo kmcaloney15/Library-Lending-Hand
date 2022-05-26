@@ -176,7 +176,7 @@ function printBooks() {
 
        //attach the image files to the front and back
     newBookBack.src = book.imgSrc;
-    console.log(book.imgSrc)
+    // console.log(book.imgSrc)
 
     //need to append newly created books to gameboard section
     gameboard.appendChild(bookElement);
