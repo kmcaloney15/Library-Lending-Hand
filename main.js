@@ -1,20 +1,26 @@
 // ------------ Global Variables ---------------------------------------/
 const gameboard = document.querySelector(".gameboard");
 const playerLivesCount = document.querySelector("span");
-//how many lives they start with
+const livesText = document.querySelector("lives");
+
+//Start game buttons
+startButton = document.getElementById('startButton');
+instructionsButton = document.getElementById('instructions');
+closeButton = document.querySelector('#closeButton');
+
+
 let playerLives = 10;
 let matchedBookCount = 0;
 let hasFlippedBook = false;
 let firstFlip;
 let secondFlip;
 let clickLimit = false;
+
+//how many lives they start with
 playerLivesCount.textContent = playerLives;
+
 let booksArray = [];
-// booksArray.push({
-//     imgSrc:
-//     "img/virgin-river.jpg",
-//     class: "virgin",
-// });
+//list of all books included in game
 booksArray.push({
     imgSrc:
     "img/eragon.jpeg",
@@ -49,9 +55,15 @@ booksArray.push({
     imgSrc: "img/clean-sweep.jpeg",
     class: "sweep",
 });
+// booksArray.push({
+//     imgSrc:
+//     "img/virgin-river.jpg",
+//     class: "virgin",
+// });
 
-
+//---------------- Calling Functions ----------------------------------/
 let doubleBooks = [];
+// startGame();
 createsDoubleBooksArray(booksArray);
 shuffleArray(doubleBooks);
 printBooks();
@@ -61,10 +73,17 @@ const books = document.querySelectorAll(".book");
 //  -------------------------- Event Listeners -------------------------/
 
 books.forEach((book) => {
-  book.addEventListener("click", flipBook);
+    book.addEventListener("click", flipBook);
 });
 
+
+
 //---------------------- FUNCTIONS ------------------------------------/
+
+//to run the start game page and instructions
+// function startGame(){
+//     document.querySelector('#startGameMessage').style.display = 'none';
+// }
 
 function flipBook() {
   //if clickLimit = true then the player won't be able to keep clicking on the board.
@@ -131,6 +150,7 @@ function unflipBooks() {
   }, 1500);
 }
 
+
 function restartGame() {
   hasFlippedBook = false;
 }
@@ -195,11 +215,35 @@ function checkWin(){
 
 function endGame(){
     if (playerLives === 0){
-        alert("Game over")
+        alert("Game over");
     }
 };
 
 
+// Get the modal
+var modal = document.getElementById("myModal");
 
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
 
