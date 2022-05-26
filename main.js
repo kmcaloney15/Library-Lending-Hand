@@ -167,6 +167,9 @@ function unflipBooks() {
 
 function restartGame() {
   hasFlippedBook = false;
+
+  //to reload the page
+//   window.location.reload();
 }
 
 
