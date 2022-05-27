@@ -21,7 +21,7 @@ const loosingMessage = document.querySelector(".loseMessage");
 const cellPhone = document.querySelector('.myAudio');
 
 //
-let playerLives = 1;
+let playerLives = 10;
 let matchedBookCount = 0;
 let hasFlippedBook = false;
 let firstFlip;
