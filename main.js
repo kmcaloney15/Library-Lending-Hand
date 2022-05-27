@@ -20,7 +20,7 @@ const loosingMessage = document.querySelector(".loseMessage");
 const cellPhone = document.querySelector('.myAudio');
 
 //
-let playerLives = 10;
+let playerLives = 1;
 let matchedBookCount = 0;
 let hasFlippedBook = false;
 let firstFlip;
@@ -143,7 +143,7 @@ function checkMatch() {
         setTimeout(endGame, 1000);
         // console.log(playerLives)
         //play ring sound
-       setTimeout((playAudio()), 500);
+       playAudio();
     }
 }
 
