@@ -67,11 +67,6 @@ booksArray.push({
     imgSrc: "img/clean-sweep.jpeg",
     class: "sweep",
 });
-// booksArray.push({
-    //     imgSrc:
-    //     "img/virgin-river.jpg",
-    //     class: "virgin",
-    // });
     
     //---------------- Calling Functions ----------------------------------/
     let doubleBooks = [];
@@ -114,7 +109,7 @@ function flipBook() {
     //   console.log(clickLimit);
     
     this.classList.add("flip");
-    // hasFlippedBook = true;
+ 
     //if hasFlippedBook is false - then it's the first time a player has clicked the book
     if (hasFlippedBook === false) {
         //first click
@@ -158,7 +153,7 @@ function disableFlip() {
 function unflipBooks() {
     //clickLimit = true here so that they can only click on the books after they have been flipped
     clickLimit = true;
-    //   console.log(clickLimit);
+    //console.log(clickLimit);
     //not a match
     setTimeout(function () {
         firstFlip.classList.remove("flip");
