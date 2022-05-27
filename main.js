@@ -85,7 +85,7 @@ booksArray.push({
     });
     
     startButton.addEventListener('click', startGame);
-    reloadGame.addEventListener('click', restartGame);
+    // reloadGame.addEventListener('click', restartGame);
     
     
     //---------------------- FUNCTIONS ------------------------------------/
