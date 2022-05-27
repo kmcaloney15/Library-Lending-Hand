@@ -22,11 +22,7 @@ const cellPhone = document.querySelector('.myAudio');
 
 //
 let playerLives = 10;
-<<<<<<< HEAD
 let matchedBookCount = 0; 
-=======
-let matchedBookCount = 0;
->>>>>>> main
 let hasFlippedBook = false;
 let firstFlip;
 let secondFlip;
