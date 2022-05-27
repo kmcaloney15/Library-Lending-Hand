@@ -12,8 +12,14 @@ const startButton = document.getElementById('startButton');
 const instructionsButton = document.getElementById('instructions');
 const closeButton = document.querySelector('#closeButton');
 
+//winning message
+const winningMessage = document.querySelector(".winMessage");
 
-let playerLives = 10;
+//loosing message
+const loosingMessage = document.querySelector(".loseMessage");
+
+
+let playerLives = 2;
 let matchedBookCount = 0;
 let hasFlippedBook = false;
 let firstFlip;
@@ -98,7 +104,6 @@ function startGame() {
 }
 
 
-
 function flipBook() {
   //if clickLimit = true then the player won't be able to keep clicking on the board.
   if (clickLimit == true) {
@@ -165,78 +170,80 @@ function unflipBooks() {
 }
 
 
+
+
+//creates duplicate books to be randomized
+function createsDoubleBooksArray(array) {
+    for (let i = 0; i < array.length; i++) {
+        doubleBooks.push(array[i]);
+        doubleBooks.push(array[i]);
+    }
+}
+
+//shuffles the books in the array
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    // console.log(array);
+}
+//recreate the book divs here in js and print them in html
+function printBooks() {
+    //loop through to create the div
+    let bookElement = "";
+    doubleBooks.forEach((book) => {
+        bookElement = document.createElement("div");
+        bookElement.classList.add("book");
+        bookElement.classList.add(book.class);
+        // console.log(bookElement.classList);
+        //add the divs that surround the front and back images
+        divFront = document.createElement("div");
+        divBack = document.createElement("div");
+        divFront.classList = "front";
+        divBack.classList = "back";
+        
+        //creating the front and back of the books with the images
+        const newBookFront = document.createElement("img");
+        newBookFront.src = "img/closed-book-green.png"
+        newBookFront.classList = 'frontImg'
+        const newBookBack = document.createElement("img");
+        newBookBack.classList = "testing"
+        
+        //attach the image files to the front and back
+        newBookBack.src = book.imgSrc;
+        // console.log(book.imgSrc)
+        
+        //append books to gameboard section
+        gameboard.appendChild(bookElement);
+        bookElement.appendChild(divFront);
+        bookElement.appendChild(divBack);
+        divFront.appendChild(newBookFront);
+        divBack.appendChild(newBookBack);
+    });
+}
+
+function checkWin(){
+    if (matchedBookCount === 8){
+    gameDiv.style.display = "none";
+    winningMessage.style.display = "block";
+    }
+}
+
+function endGame(){
+    if (playerLives === 0){
+    gameDiv.style.display = "none";
+    loosingMessage.style.display = "block";
+    }
+};
+
+
 function restartGame() {
   hasFlippedBook = false;
 
   //to reload the page
 //   window.location.reload();
 }
-
-
-//creates duplicate books to be randomized
-function createsDoubleBooksArray(array) {
-  for (let i = 0; i < array.length; i++) {
-    doubleBooks.push(array[i]);
-    doubleBooks.push(array[i]);
-  }
-}
-
-//shuffles the books in the array
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  // console.log(array);
-}
-//recreate the book divs here in js and print them in html
-function printBooks() {
-  //loop through to create the div
-  let bookElement = "";
-  doubleBooks.forEach((book) => {
-    bookElement = document.createElement("div");
-    bookElement.classList.add("book");
-    bookElement.classList.add(book.class);
-    // console.log(bookElement.classList);
-    //add the divs that surround the front and back images
-    divFront = document.createElement("div");
-    divBack = document.createElement("div");
-    divFront.classList = "front";
-    divBack.classList = "back";
-
-    //creating the front and back of the books with the images
-    const newBookFront = document.createElement("img");
-    newBookFront.src = "img/closed-book-green.png"
-    newBookFront.classList = 'frontImg'
-    const newBookBack = document.createElement("img");
-    newBookBack.classList = "testing"
-
-       //attach the image files to the front and back
-    newBookBack.src = book.imgSrc;
-    // console.log(book.imgSrc)
-
-    //need to append newly created books to gameboard section
-    gameboard.appendChild(bookElement);
-    bookElement.appendChild(divFront);
-    bookElement.appendChild(divBack);
-    divFront.appendChild(newBookFront);
-    divBack.appendChild(newBookBack);
-  });
-}
-
-function checkWin(){
-    if (matchedBookCount === 8){
-        alert("You won!");
-    }
-}
-
-function endGame(){
-    if (playerLives === 0){
-        alert("Game over");
-    }
-};
-
-
 
 
 
