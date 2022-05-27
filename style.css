@@ -25,13 +25,13 @@ body {
 #startButton {
     position: absolute;
     margin-top: 50%;
-    left: 40%;
+    left: 50%;
 }
 .welcomeImg {
-    width: 1000px;
+    width: 1200px;
     height: auto;
     position: relative;
-    margin-top: 10%;
+    /* margin-top: 5%; */
 }
 
 .gameDiv {
