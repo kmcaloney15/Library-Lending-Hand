@@ -48,7 +48,7 @@ p {
     
 }
 
-.angryLib {
+.angryLib, .happyLib {
     justify-content: center;
     align-items: center;
     height: auto;

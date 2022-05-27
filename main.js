@@ -20,7 +20,7 @@ const loosingMessage = document.querySelector(".loseMessage");
 
 
 
-let playerLives = 2;
+let playerLives = 12;
 let matchedBookCount = 0;
 let hasFlippedBook = false;
 let firstFlip;
