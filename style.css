@@ -39,13 +39,22 @@ body {
 }
 
 p {
-    font-size: 60px;
+    font-size: 50px;
     color: white;
-    margin-top: 50%;
+    margin-top: 150px;
+    border-top: 50%;
     text-align: center;
+    border: 2px solid white;
     
 }
 
+.angryLib {
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 40%;
+    position: relative;
+}
 .gameDiv {
     display: none;
     /* display: block; */

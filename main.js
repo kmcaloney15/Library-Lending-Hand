@@ -19,6 +19,7 @@ const winningMessage = document.querySelector(".winMessage");
 const loosingMessage = document.querySelector(".loseMessage");
 
 
+
 let playerLives = 2;
 let matchedBookCount = 0;
 let hasFlippedBook = false;
