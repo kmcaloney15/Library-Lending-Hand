@@ -70,9 +70,10 @@ p {
     justify-content: center;
     align-items: center;
     height: auto;
-    width: 17%;
+    width: 20%;
+    margin-left: 40%;
     position: relative;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 .gameDiv {
     display: none;
