@@ -5,10 +5,11 @@ const livesText = document.querySelector("lives");
 const intro = document.querySelector('.intro');
 const gameDiv = document.querySelector('.gameDiv')
 
-//Start game buttons
+//game buttons
 const startButton = document.getElementById('startButton');
 const instructionsButton = document.getElementById('instructions');
 const closeButton = document.querySelector('#closeButton');
+const reloadGame = document.querySelector('#restartButton');
 
 //winning message
 const winningMessage = document.querySelector(".winMessage");
@@ -89,6 +90,7 @@ booksArray.push({
     });
     
     startButton.addEventListener('click', startGame);
+    reloadGame.addEventListener('click', restartGame);
     
     
     //---------------------- FUNCTIONS ------------------------------------/
@@ -234,10 +236,8 @@ function endGame(){
 
 
 function restartGame() {
-    hasFlippedBook = false;
-    
-    //to reload the page
-    //   window.location.reload();
+     //to reload the page
+      window.location.reload();
 }
 
 function playAudio (){

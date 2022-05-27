@@ -12,7 +12,7 @@ body {
 .intro {
     display: visible;
     position: relative;
-
+    
 }
 
 #instructions {
@@ -22,13 +22,22 @@ body {
     border-radius: 1px;
     text-transform: uppercase;
     left: 50%;
-
+    
 }
 
 #startButton {
     position: absolute;
     margin-top: 50%;
     left: 45%;
+    background-color: white;
+}
+
+#restartButton {
+    position: absolute;
+    margin-bottom: 50%;
+    size: 300%;
+    left: 45%;
+    background-color: white;
 }
 
 .welcomeImg {
