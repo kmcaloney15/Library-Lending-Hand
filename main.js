@@ -1,5 +1,3 @@
-
-
 // ------------ Global Variables ---------------------------------------/
 const gameboard = document.querySelector(".gameboard");
 const playerLivesCount = document.querySelector("span");
@@ -18,19 +16,21 @@ const winningMessage = document.querySelector(".winMessage");
 //loosing message
 const loosingMessage = document.querySelector(".loseMessage");
 
+//audio file
+const cellPhone = document.querySelector('.myAudio');
 
-
-let playerLives = 12;
+//
+let playerLives = 10;
 let matchedBookCount = 0;
 let hasFlippedBook = false;
 let firstFlip;
 let secondFlip;
 let clickLimit = false;
+let booksArray = [];
 
 //how many lives they start with
 playerLivesCount.textContent = playerLives;
 
-let booksArray = [];
 //list of all books included in game
 booksArray.push({
     imgSrc:
@@ -67,111 +67,104 @@ booksArray.push({
     class: "sweep",
 });
 // booksArray.push({
-//     imgSrc:
-//     "img/virgin-river.jpg",
-//     class: "virgin",
-// });
-
-//---------------- Calling Functions ----------------------------------/
-let doubleBooks = [];
-
-// startGame();
-createsDoubleBooksArray(booksArray);
-shuffleArray(doubleBooks);
-printBooks();
-
-const books = document.querySelectorAll(".book");
-
-//  -------------------------- Event Listeners -------------------------/
-//clicking on the books
-books.forEach((book) => {
-    book.addEventListener("click", flipBook);
-});
-
-startButton.addEventListener('click', startGame);
-
-//audio for cell phone ringing
-// myAudioElement.addEventListener('canplay', event => {
-//     myAudioElement.play();
-// });
-// console.log(myAudioElement);
-
-//---------------------- FUNCTIONS ------------------------------------/
-
-//to run the start game page and instructions
-function startGame() {
-  intro.style.display = "none";
-  gameDiv.style.display = "block";
+    //     imgSrc:
+    //     "img/virgin-river.jpg",
+    //     class: "virgin",
+    // });
+    
+    //---------------- Calling Functions ----------------------------------/
+    let doubleBooks = [];
+    
+    // startGame();
+    createsDoubleBooksArray(booksArray);
+    shuffleArray(doubleBooks);
+    printBooks();
+    
+    
+    //  -------------------------- Event Listeners -------------------------/
+    const books = document.querySelectorAll(".book");
+    //clicking on the books
+    books.forEach((book) => {
+        book.addEventListener("click", flipBook);
+    });
+    
+    startButton.addEventListener('click', startGame);
+    
+    
+    //---------------------- FUNCTIONS ------------------------------------/
+    
+    //to run the start game page and instructions
+    function startGame() {
+    intro.style.display = "none";
+    gameDiv.style.display = "block";
 }
 
 
 function flipBook() {
-  //if clickLimit = true then the player won't be able to keep clicking on the board.
-  if (clickLimit == true) {
-    return;
-  }
-  //disables player from clicking the same book twice in a row
-  if (this === firstFlip) {
-    return;
-  }
-  //   console.log(clickLimit);
-
-  this.classList.add("flip");
-  // hasFlippedBook = true;
-  //if hasFlippedBook is false - then it's the first time a player has clicked the book
-  if (hasFlippedBook === false) {
-    //first click
-    hasFlippedBook = true;
-    firstFlip = this;
-  } else {
-    hasFlippedBook = false;
-    secondFlip = this;
-
-    // look for matching books
-    //if match
-    checkMatch();
-  }
+    //if clickLimit = true then the player won't be able to keep clicking on the board.
+    if (clickLimit == true) {
+        return;
+    }
+    //disables player from clicking the same book twice in a row
+    if (this === firstFlip) {
+        return;
+    }
+    //   console.log(clickLimit);
+    
+    this.classList.add("flip");
+    // hasFlippedBook = true;
+    //if hasFlippedBook is false - then it's the first time a player has clicked the book
+    if (hasFlippedBook === false) {
+        //first click
+        hasFlippedBook = true;
+        firstFlip = this;
+    } else {
+        hasFlippedBook = false;
+        secondFlip = this;
+        
+        // look for matching books
+        //if match
+        checkMatch();
+    }
 }
 
 //put each function seperate, then call function in main one
 function checkMatch() {
-  if (firstFlip.classList[1] === secondFlip.classList[1]) {
-    disableFlip();
-    matchedBookCount++;
-    console.log(matchedBookCount);
-   setTimeout(checkWin, 1000);
-  } else {
-    unflipBooks();
-    //take away a life
-    playerLives--;
-    playerLivesCount.textContent = playerLives;
-    setTimeout(endGame, 1000);
-    // console.log(playerLives)
-    //play ring sound
-  }
+    if (firstFlip.classList[1] === secondFlip.classList[1]) {
+        disableFlip();
+        matchedBookCount++;
+        console.log(matchedBookCount);
+        setTimeout(checkWin, 1000);
+    } else {
+        unflipBooks();
+        //take away a life
+        playerLives--;
+        playerLivesCount.textContent = playerLives;
+        setTimeout(endGame, 1000);
+        // console.log(playerLives)
+        //play ring sound
+       setTimeout((playAudio()), 500);
+    }
 }
 
 function disableFlip() {
-  firstFlip.removeEventListener("click", flipBook);
-  secondFlip.removeEventListener("click", flipBook);
-  console.log("matched pair");
+    firstFlip.removeEventListener("click", flipBook);
+    secondFlip.removeEventListener("click", flipBook);
+    console.log("matched pair");
 }
 
 function unflipBooks() {
-  //clickLimit = true here so that they can only click on the books after they have been flipped
-  clickLimit = true;
-  //   console.log(clickLimit);
-  //not a match
-  setTimeout(function () {
-    firstFlip.classList.remove("flip");
-    secondFlip.classList.remove("flip");
-
-    clickLimit = false;
-  }, 1500);
+    //clickLimit = true here so that they can only click on the books after they have been flipped
+    clickLimit = true;
+    //   console.log(clickLimit);
+    //not a match
+    setTimeout(function () {
+        firstFlip.classList.remove("flip");
+        secondFlip.classList.remove("flip");
+        
+        clickLimit = false;
+    }, 1500);
 }
-
-
-
 
 //creates duplicate books to be randomized
 function createsDoubleBooksArray(array) {
@@ -189,6 +182,7 @@ function shuffleArray(array) {
     }
     // console.log(array);
 }
+
 //recreate the book divs here in js and print them in html
 function printBooks() {
     //loop through to create the div
@@ -226,25 +220,30 @@ function printBooks() {
 
 function checkWin(){
     if (matchedBookCount === 8){
-    gameDiv.style.display = "none";
-    winningMessage.style.display = "block";
+        gameDiv.style.display = "none";
+        winningMessage.style.display = "block";
     }
 }
 
 function endGame(){
     if (playerLives === 0){
-    gameDiv.style.display = "none";
-    loosingMessage.style.display = "block";
+        gameDiv.style.display = "none";
+        loosingMessage.style.display = "block";
     }
 };
 
 
 function restartGame() {
-  hasFlippedBook = false;
-
-  //to reload the page
-//   window.location.reload();
+    hasFlippedBook = false;
+    
+    //to reload the page
+    //   window.location.reload();
 }
 
-
+function playAudio (){
+    //audio for cell phone ringing
+    cellPhone.play();
+    console.log(cellPhone);
+    
+}
 

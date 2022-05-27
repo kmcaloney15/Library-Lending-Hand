@@ -28,7 +28,7 @@ body {
 #startButton {
     position: absolute;
     margin-top: 50%;
-    left: 50%;
+    left: 45%;
 }
 
 .welcomeImg {
@@ -44,15 +44,23 @@ p {
     margin-top: 150px;
     border-top: 50%;
     text-align: center;
-    border: 2px solid white;
+    /* border: 2px solid white; */
     
 }
 
-.angryLib, .happyLib {
+.angryLib {
     justify-content: center;
     align-items: center;
     height: auto;
     width: 40%;
+    position: relative;
+}
+
+.happyLib {
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 20%;
     position: relative;
 }
 .gameDiv {
@@ -79,8 +87,6 @@ img {
     width: 100px;
     height: 120px;
     align-items: center;
-
-
 }
 
 .gameboard {
@@ -90,7 +96,7 @@ img {
     /* border: 2px solid limegreen; */
     perspective: 1000px;
     margin: auto;
-
+    
 }
 
 .book {
