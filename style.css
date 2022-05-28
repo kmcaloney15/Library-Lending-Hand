@@ -38,6 +38,7 @@ body {
     size: 300%;
     left: 45%;
     background-color: white;
+    color: black;
 }
 
 .welcomeImg {
@@ -46,6 +47,7 @@ body {
     position: relative;
     /* margin-top: 5%; */
 }
+
 
 p {
     font-size: 50px;
@@ -58,10 +60,16 @@ p {
     
 }
 
+.loseMessage {
+    justify-content: center;
+    align-items: center;
+}
+
 .angryLib {
     justify-content: center;
     align-items: center;
     height: auto;
+    margin-left: 28%;
     width: 40%;
     position: relative;
 }
