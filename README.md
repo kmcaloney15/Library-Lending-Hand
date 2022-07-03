@@ -2,6 +2,7 @@
 
 # Premise
 The library is a mess. You've been asked to help the librarian organize and put away all of the books that got pulled after a school group came through.  There are two copies of each book that need to be shelved together. 
+![Library Memory Game](https://kmcaloney15.github.io/library-memory-game/)
 
 # Game Play
 The user will take turns turning flipping any two books. If you find two of the same books, they will remain showing. Once you pair all of the books, the librarian will take them and you win! 
