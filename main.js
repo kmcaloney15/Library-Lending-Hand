@@ -18,7 +18,7 @@ const winningMessage = document.querySelector(".winMessage");
 const loosingMessage = document.querySelector(".loseMessage");
 
 //audio file
-const cellPhone = document.querySelector(".myAudio");
+const cellPhone = document.querySelector(".myAudio").volume = 0.1;
 
 //
 let playerLives = 1;
